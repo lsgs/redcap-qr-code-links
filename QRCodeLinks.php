@@ -21,19 +21,28 @@ class QRCodeLinks extends AbstractExternalModule
             $ajaxurl = $this->getUrl('qr_ajax.php', true);
 ?>
 <script type="text/javascript">
+/* QRCodeLinks JavaScript */
 $(document).ready(function() {
-  $('a.em-qr-code').each(function(i,e){
-    if($(e).hasClass('em-qr-code-this')) {
+  let getQR = function() {
+    $('a.em-qr-code').each(function(i,e){
+      if ($(e).find('img').length) return; 
+      if($(e).hasClass('em-qr-code-this')) {
         $(e).attr('href', window.location.href);
-    }
-    var h = $(e).attr('href');
-    var t = $(e).text();
-    //console.log('QR Code: title='+t+'; href='+h);
-    $('<img />').attr({ 
+      }
+      var h = $(e).attr('href');
+      var t = $(e).text();
+      //console.log('QR Code: title='+t+'; href='+h);
+      $('<img />').attr({ 
         src:'<?=$ajaxurl?>&url='+encodeURIComponent(h), 
         title:t
-    }).appendTo($(e).text(''));
-  });
+      }).appendTo($(e).text(''));
+    });
+  };
+  if ($('a.em-qr-code').length) {
+    setInterval(() => {
+      getQR();
+    }, 3000);
+  }
 });
 </script>
 <?php
