@@ -10,15 +10,8 @@
 	],
 	"description": "Converts any anchor tags with the class \"em-qr-code\" on a survey or data entry form into a QR Code.<br><span style=\"font-family:monospace;\">&lt;a href=\"https://www.mcri.edu.au/\" target=\"_blank\" <span style=\"font-weight:bold;color:blue;\">class=\"em-qr-code\"</span>&gt;https://www.mcri.edu.au/&lt;/a&gt;</span><br><br>If the anchor also has the class \"em-qr-code-this\" then the href attribute is overwritten with the current URL.<br><span style=\"font-family:monospace;\">&lt;a href=\"#\" target=\"_blank\" <span style=\"font-weight:bold;color:blue;\">class=\"em-qr-code em-qr-code-this\"</span>&gt;This Page&lt;/a&gt;</span>",
     "framework-version": 13,
-    "compatibility": {
-        "redcap-version-min": "11.1.1"
-    },
-    "no-auth-pages": [
-        "qr_ajax"
-    ],
+    "no-auth-pages": [ "qr_ajax" ],
     "enable-every-page-hooks-on-system-pages": false,
-	"system-settings": [
-	],
-	"project-settings": [
-	]
+	"system-settings": [ ],
+	"project-settings": [ ]
 }
